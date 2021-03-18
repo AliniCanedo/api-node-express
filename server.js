@@ -1,8 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cors = require("cors");
+
+
 // create express app
 const app = express();
+app.use(cors());
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // Setup server port
 const port = process.env.PORT || 5000;
 // parse requests of content-type - application/x-www-form-urlencoded
@@ -22,4 +28,4 @@ app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
 
-app.use(cors());
+
